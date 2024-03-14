@@ -1,0 +1,76 @@
+<form *ngIf="this.registerForm" [formGroup]="registerForm" class="center-form ">
+    <div class="example-container body">
+        <label>User Code</label>
+        <input type="text" placeholder="code" formControlName="code">
+        <ng-container *ngIf="registerForm.controls['code'].errors && registerForm.controls['code'].touched">
+            <div *ngIf="registerForm.controls['code'].errors['required']" style="color: red;">
+                This field is required
+            </div>
+        </ng-container>
+        <br>
+        <label>User Name</label>
+        <!-- <input matInput type="text" placeholder="user name" formControlName="userName" [value]="userName"> -->
+        <!-- <input type="text" placeholder="user name" formControlName="userName" [(ngModule)]="_userName"> -->
+        <input type="text" placeholder="user name" [(ngModel)]=this._userName formControlName="userName" >
+                <ng-container *ngIf="registerForm.controls['userName'].errors && registerForm.controls['userName'].touched">
+            <div *ngIf="!registerForm.controls['userName'].errors['required'] && !registerForm.controls['userName'].errors['minLength']"
+                style="color: red;">
+                You must enter at least 3 characters
+            </div>
+            <div *ngIf="registerForm.controls['userName'].errors['required']" style="color: red;">
+                This field is required
+            </div>
+        </ng-container>
+        <br>
+        <!-- <mat-form-field> -->
+        <label>Password</label>
+        <input placeholder="password" formControlName="password">
+        <!-- <input matInput [type]="hide ? 'password' : 'text'" placeholder="password" formControlName="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [disabled]="registerForm.controls['password'].errors"
+            [attr.aria-label]="'הסתר סיסמה'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button> -->
+        <!-- </mat-form-field> -->
+        <ng-container *ngIf="registerForm.controls['password'].errors && registerForm.controls['password'].touched">
+            <div *ngIf="!registerForm.controls['password'].errors['required'] && !registerForm.controls['password'].errors['minLength']"
+                style="color: red;">
+                You must enter at least 3 characters
+            </div>
+            <div *ngIf="registerForm.controls['password'].errors['required']" style="color: red;">
+                This field is required
+            </div>
+        </ng-container>
+        <br>
+        <!-- <mat-form-field> -->
+        <label>User Address</label>
+        <input matInput type="text" placeholder="address" formControlName="address">
+        <ng-container *ngIf="registerForm.controls['address'].errors && registerForm.controls['address'].touched">
+            <div *ngIf="registerForm.controls['address'].errors['required']" style="color: red;">
+                This field is required
+            </div>
+        </ng-container>
+
+        <!-- </mat-form-field> -->
+        <br>
+        <!-- <mat-form-field> -->
+        <label>User Email</label>
+        <input matInput type="email" placeholder="email" formControlName="email">
+        <!-- </mat-form-field> -->
+        <ng-container *ngIf="registerForm.controls['email'].errors && registerForm.controls['email'].touched">
+            <div *ngIf="!registerForm.controls['email'].errors['required']&& registerForm.controls['email'].errors['email']"
+                style="color: red;">
+                The email address is invalid
+            </div>
+            <div *ngIf="registerForm.controls['email'].errors['required']" style="color: red;">
+                This field is required
+            </div>
+
+        </ng-container>
+        <br>
+    </div>
+    <br />
+    <button extended type="submit" (click)="registerUser()" [disabled]="!registerForm.valid">
+        <!-- <mat-icon>login</mat-icon> -->
+        Login
+    </button>
+</form>

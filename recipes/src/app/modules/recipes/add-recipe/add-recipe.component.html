@@ -1,0 +1,52 @@
+<form [formGroup]="RecipeForm" class="addForm">
+    <div class="form-group">
+        <label for="recipeName">recipe name</label>
+        <input type="text" id="recipeName" formControlName="recipeName" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label for="categoryCode">category</label>
+        <select id="categoryCode" formControlName="categoryCode" class="form-control">
+            <option *ngFor="let category of categories" [value]="category.code">{{category.name}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="preparationTime">preparation time (minutes)</label>
+        <input type="number" id="preparationTime" formControlName="preparationTime" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label for="difficultyLevel">difficulty level (1-5)</label>
+        <input type="number" id="difficultyLevel" formControlName="difficultyLevel" class="form-control" required
+            min="1" max="5">
+    </div>
+
+    <div class="form-group">
+        <label for="ingredient">ingredients:</label>
+        <div class="ingredients-list">
+            <div *ngFor="let ingredient of ingredients.controls; let i = index; trackBy: trackByFn">
+                <div class="form-group">
+                    <input type="text" formControlName="name" id="ingredient[{{i}}]" class="form-control ingredient-input">
+                    <button type="button" class="btn btn-sm addremove" (click)="removeIngredient(i)">remove</button>
+                </div>
+            </div>
+            <button type="button" class="btn btn-sm addremove" (click)="addIngredient()">add</button>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="instructions">instructions:</label>
+        <div class="instructions-list">
+            <div *ngFor="let instruction of instructions.controls; let i = index; trackBy: trackByFn">
+                <div class="form-group">
+                    <input type="text" formControlName="name" id="instruction[{{i}}]" class="form-control instruction-input">
+                    <button type="button" class="btn btn-sm addremove" (click)="removeInstruction(i)">remove</button>
+                </div>
+            </div>
+            <button type="button" class="btn btn-sm addremove" (click)="addInstruction()">add</button>
+        </div>
+    </div>
+
+    <button type="submit" (click)="onSubmit()">save</button>
+</form>

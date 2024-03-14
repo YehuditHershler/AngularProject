@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+form {
+  margin-top: 5%;
+  margin-left: 25%;
+  margin-right: 25%;
+  border: 2px solid #9be9e9;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f8ff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+input {
+  background-color: #add8e6;
+  border-color: #88d2d2;
+  height: 35px;
+  width: 200px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.inp {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+button {
+  background-color: #dd88d8;
+  color: white;
+  border-color: #dd88d8;
+  height: 30px;
+  width: 100px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+

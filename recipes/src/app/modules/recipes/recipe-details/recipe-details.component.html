@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="card recipe-details">
+        <div class="card-header">
+            <h2 class="card-title">{{ recipe.name }}</h2>
+            <span class="badge badge-primary">{{ category.name }}</span>
+            <!-- <i class="fas fa-{{ category.iconRoute }}"></i> -->
+            <img src="{{category.iconRoute}}" />
+        </div>
+        <!-- ,id,,
+        ,, -->
+        <img class="card-img-top" src="{{ recipe.imageRoute }}" alt="{{ recipe.name }}">
+        <div class="card-body">
+            <!-- <h3 class="card-subtitle">רכיבים</h3>
+                <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
+                        <i class="fas fa-check"></i> {{ ingredient }}
+                    </li>
+                </ul> -->
+            <h3 class="card-subtitle">preparation method: </h3>
+            <ol class="list-group">
+                <li class="list-group-item" *ngFor="let step of recipe.preparationMethod; let i = index">
+                    <!-- {{ i + 1 }}. -->
+                    - {{ step }}
+                </li>
+            </ol>
+            <span class="badge badge-warning">difficulty: {{ this.difficultyStars }} </span>
+            <span class="badge badge-warning">dateAdded: {{ recipe?.dateAdded }} </span>
+            <span class="badge badge-warning">preparationTime: {{ recipe?.preparationTime }} </span>
+            <span class="badge badge-warning">user code: {{ recipe?.userCode }} </span>
+            <div class="text-right">
+                <button *ngIf="thisUser" class="btn btn-danger" (click)="onDelete()">מחק מתכון</button>
+            </div>
+        </div>
+    </div>
+</div>
