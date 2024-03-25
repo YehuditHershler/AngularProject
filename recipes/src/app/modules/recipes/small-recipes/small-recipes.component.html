@@ -1,9 +1,14 @@
+<!-- small-recipe.component.ts -->
 <div class="card small-recipe mx-auto">
  <img class="card-img-top" src="{{ recipein.imageRoute }}" alt="{{ recipein.name }}">
   
   <div class="card-body">
     <h5 class="card-title">{{ recipein.name }}</h5>
-     <p class="card-text">preparation time: {{ recipein.preparationTime }}</p>
+    <div id="det">
+    <p class="card-text">preparation time: {{ recipein.preparationTime }}</p>
+    <p class="card-text">difficulty: {{ recipein.difficulty }}</p>
+    </div>
+      <!-- | preparationTime -->
      <div>
        <button (click)="redirectToRecipeDetails()">to show</button>
        <button (click)="redirectToEditDetails()">to edit</button>

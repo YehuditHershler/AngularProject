@@ -1,3 +1,4 @@
+// recipes-routing.module.ts
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AllRecipesComponent } from './all-recipes/all-recipes.component';
@@ -14,7 +15,7 @@ const USER_ROUTES:Routes=[
    {path:"small-recipes", component:SmallRecipesComponent},
    {path:"add-recipe", component:AddRecipeComponent},
    { path: 'recipe-details', component: RecipeDetailsComponent },
-   { path: 'etit-recipe', component: EditRecipeComponent },
+   { path: 'edit-recipe', component: EditRecipeComponent },
 
 ]
 

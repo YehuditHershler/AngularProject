@@ -1,0 +1,13 @@
+.recipe-details-details{
+    display: flex;
+ flex-direction: row;   
+}
+.det{
+    display: flex;
+    flex-direction: row;  
+    margin: 3px;
+    /* flex-direction: column;   */
+}
+span{
+    padding: 2px;
+}

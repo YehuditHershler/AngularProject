@@ -46,6 +46,7 @@
 
 // }
 
+//all-recipes.component.ts
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../recipe.service';
 import { Recipe } from '../recipe.model';

@@ -1,3 +1,4 @@
+// recipe-details.component.ts
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -8,7 +9,7 @@ import { Category } from './category.model';
   providedIn: 'root'
 })
 export class RecipeService {
-  public thisRecipeCode!:string;
+  public thisRecipeName!:string;
   constructor(private http: HttpClient) { }
   private readonly recipeAPI_URL = 'http://localhost:5113/Recipe';
   private readonly categoryAPI_URL = 'http://localhost:5113/Category';
@@ -16,26 +17,30 @@ export class RecipeService {
   getAllRecipes(): Observable<Recipe[]> {
     return this.http.get<Recipe[]>(this.recipeAPI_URL);
   }
-  setRecipe(recipe:Recipe){
+  setRecipe(recipe:Recipe): Observable<any>{
     return this.http.post(this.recipeAPI_URL, recipe)
   }
-  getRecipeById(recipeId: string): Observable<Recipe> {
-    return this.http.get<Recipe>(`${this.recipeAPI_URL}/${recipeId}`);
+  getRecipeByName(recipeName: string): Observable<Recipe> {
+    return this.http.get<Recipe>(`${this.recipeAPI_URL}/${recipeName}`);
+  }
+  updateRecipe(code:string, recipe:Recipe):Observable<any>{
+    return this.http.put(`${this.recipeAPI_URL}/${code}`, recipe);
   }
   deleteRecipe(code:string){
     return this.http.delete(`${this.recipeAPI_URL}/${code}`);
   }
+
   ///
-  getCategories():Observable<any> {
+  getCategories():Observable<Category[]> {
     return this.http.get<Category[]>(this.categoryAPI_URL)
   }
   getCategoryByCode(code:string):Observable<Category>{
     return this.http.get<Category>(`${this.categoryAPI_URL}/${code}`);
   }
-  setThisRecipeCode(x:string){
-    this.thisRecipeCode=x;
+  setThisRecipeName(_name:string){
+    this.thisRecipeName=_name;
   }
-  getThisRecipeCode(){
-    return this.thisRecipeCode;
+  getThisRecipeName(){
+    return this.thisRecipeName;
   }
 }

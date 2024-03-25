@@ -1,7 +1,14 @@
+<!-- add-recipe.component.html -->
 <form [formGroup]="RecipeForm" class="addForm">
+    <h5>all of fields are required!</h5>
     <div class="form-group">
-        <label for="recipeName">recipe name</label>
-        <input type="text" id="recipeName" formControlName="recipeName" class="form-control" required>
+        <label for="name">recipe name</label>
+        <input type="text" id="name" formControlName="name" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label for="recipeCode">recipe code</label>
+        <input type="text" id="recipeCode" formControlName="recipeCode" class="form-control" required>
     </div>
 
     <div class="form-group">
@@ -13,7 +20,7 @@
 
     <div class="form-group">
         <label for="preparationTime">preparation time (minutes)</label>
-        <input type="number" id="preparationTime" formControlName="preparationTime" class="form-control" required>
+        <input type="number" id="preparationTime" formControlName="preparationTime" class="form-control" required min="1">
     </div>
 
     <div class="form-group">
@@ -47,6 +54,10 @@
             <button type="button" class="btn btn-sm addremove" (click)="addInstruction()">add</button>
         </div>
     </div>
-
+    <div class="form-group">
+        <label for="ImageRoute">Image route</label>
+        <input type="text" id="ImageRoute" formControlName="ImageRoute" class="form-control" required>
+    </div>
     <button type="submit" (click)="onSubmit()">save</button>
+    <span class="error" *ngIf="RecipeForm.invalid">יש למלא את כל השדות החובה</span>
 </form>

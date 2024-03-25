@@ -1,4 +1,4 @@
-// //small-recipes.component.ts
+//small-recipes.component.ts
 
 import { Component, Input } from '@angular/core';
 import { Recipe } from '../recipe.model';
@@ -6,6 +6,7 @@ import { PreparationTimePipe } from '../preparation-time.pipe';
 import { ActivatedRoute } from '@angular/router';
 import { RecipeService } from '../recipe.service';
 import { Router } from '@angular/router';
+import { SessionStorageService } from '../../../session-storage.service';
 
 @Component({
   selector: 'app-small-recipes',
@@ -13,18 +14,30 @@ import { Router } from '@angular/router';
   styleUrls: ['./small-recipes.component.css']
 })
 export class SmallRecipesComponent {
-   constructor(private recipeService: RecipeService, private router: Router) {}
+   constructor(private recipeService: RecipeService, private sessionStorageService: SessionStorageService, private router: Router) {}
 
-  ngOnInit() {
+  ngOnInit() {    
+//     // משוך או קבל נתוני מתכון והקצה אותם ל-recipein
+//     // דוגמה:
+//     // this.recipeService.getRecipeById(recipeId) // החלף עם הלוגיקה שלך
+//     //   .subscribe(recipe => this.recipein = recipe);
     // const recipeCode = this.route.snapshot.params['code']; // קבלת קוד המתכון מ-URL
     // // this.recipein = this.getRecipeByCode(recipeCode); // פונקציה לאחזור מתכון לפי קוד
   }
   redirectToRecipeDetails(){
-    this.recipeService.thisRecipeCode=this.recipein.code;
-    this.router.navigate(['/recipes/recipe-details']);
+    console.log(this.recipein.name)
+    // this.recipeService.setThisRecipe(this.recipein.code);
+    // this.recipeService.thisRecipeName=this.recipein.code;
+    if(this.sessionStorageService.getItem('user'))
+      this.router.navigate(['/recipes/recipe-details']);
   }
   redirectToEditDetails(){
-    this.recipeService.setThisRecipeCode(this.recipein.code);
+    // this.recipeService.setThisRecipeName(this.recipein.name);
+    // console.log(this.recipein.name)
+    console.log(this.recipein.name)
+    // this.recipeService.setThisRecipe(this.recipein.code);
+    // this.recipeService.thisRecipeName=this.recipein.code;
+    if(this.sessionStorageService.getItem('user'))
     this.router.navigate(['/recipes/edit-recipe']);
   }
   @Input()

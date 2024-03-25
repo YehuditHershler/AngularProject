@@ -1,3 +1,4 @@
+<!-- register.component.html -->
 <form *ngIf="this.registerForm" [formGroup]="registerForm" class="center-form ">
     <div class="example-container body">
         <label>User Code</label>
@@ -11,8 +12,8 @@
         <label>User Name</label>
         <!-- <input matInput type="text" placeholder="user name" formControlName="userName" [value]="userName"> -->
         <!-- <input type="text" placeholder="user name" formControlName="userName" [(ngModule)]="_userName"> -->
-        <input type="text" placeholder="user name" [(ngModel)]=this._userName formControlName="userName" >
-                <ng-container *ngIf="registerForm.controls['userName'].errors && registerForm.controls['userName'].touched">
+        <input type="text" placeholder="user name" formControlName="userName" [(ngModel)]=this._userName>
+        <ng-container *ngIf="registerForm.controls['userName'].errors && registerForm.controls['userName'].touched">
             <div *ngIf="!registerForm.controls['userName'].errors['required'] && !registerForm.controls['userName'].errors['minLength']"
                 style="color: red;">
                 You must enter at least 3 characters

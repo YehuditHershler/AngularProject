@@ -97,3 +97,4 @@ C:\Users\hersh\OneDrive\Documents\angularProject\server\server\obj\Debug\net7.0\
 C:\Users\hersh\OneDrive\Documents\angularProject\server\server\obj\Debug\net7.0\server.pdb
 C:\Users\hersh\OneDrive\Documents\angularProject\server\server\obj\Debug\net7.0\server.genruntimeconfig.cache
 C:\Users\hersh\OneDrive\Documents\angularProject\server\server\obj\Debug\net7.0\ref\server.dll
+C:\Users\hersh\OneDrive\Documents\angularProject\server\server\obj\Debug\net7.0\server.sourcelink.json

@@ -1,8 +1,12 @@
-<nav calss="navbar navbar-expand-lg navbar-light bg-light  shadow">
+<!-- app.component.html -->
+<nav class="navbar navbar-expand-lg navbar-light   shadow">
     <a class="navbar-brand" routerLink="user/login">Log In</a>
     <a class="navbar-brand" routerLink="/user/register">Register</a>
     <a class="navbar-brand" routerLink="/recipes/all-recipes">All-Recipes </a>
     <a class="navbar-brand" routerLink="/recipes/add-recipe">Add-Recipe </a>
-    <a class="navbar-brand" routerLink="user/login">Log Out </a>
+    <!-- <a class="navbar-brand" routerLink="user/login">Log Out </a> -->
+    <!-- <a class="navbar-brand" routerLink="'/user/login'" [queryParams]="{ message: 'LogOut' }">Log Out</a> -->
+    <a class="navbar-brand" routerLink="user/login" (click)="logout()">Log Out</a>
+
 </nav>
 <router-outlet></router-outlet>

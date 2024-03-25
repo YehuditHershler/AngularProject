@@ -22,4 +22,16 @@
   font-size: 1rem; /* גודל טקסט */
   color: #666; /* צבע טקסט */
   text-align: center;
+
+}
+#det{
+  display: flex;
+  flex-direction: row;
+  margin: 2px;
+}
+p{
+  border: 1px solid rgb(129, 27, 117);
+  margin: 2px;
+  width: 120px;
+  height: 60px;
 }

@@ -1,1 +1,39 @@
-<p>edit-recipe works!</p>
+<div class="container">
+    <h1>עריכת מתכון</h1>
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">שם המתכון:</label>
+        <input type="text" [(ngModel)]=this.recipe.name formControlName="name" id="name" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="categoryId">קטגוריה:</label>
+        <select formControlName="categoryId" id="categoryId" class="form-control" [(ngModel)]="this.category">
+          <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="preparationTime">זמן הכנה (דקות):</label>
+        <input type="number" formControlName="preparationTime" id="preparationTime" class="form-control" [(ngModel)]="this.recipe.preparationTime">
+      </div>
+      <div class="form-group">
+        <label for="difficultyLevel">דרגת קושי (1-5):</label>
+        <input type="number" formControlName="difficultyLevel" id="difficultyLevel" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="ingredients">מרכיבים:</label>
+        <textarea formControlName="ingredients" id="ingredients" class="form-control"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="instructions">אופן ההכנה:</label>
+        <textarea formControlName="instructions" id="instructions" class="form-control"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="image">תמונה:</label>
+        <input type="text" formControlName="image" id="image" class="form-control">
+      </div>
+      <img src="{{ this.recipe.imageRoute }}">
+      <button type="submit" class="btn btn-primary">שמור שינויים</button>
+      <button type="button" class="btn btn-secondary" (click)="onCancel()">ביטול</button>
+    </form>
+  </div>
+  
